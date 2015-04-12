@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Comment
  *
- * @ORM\Table()
+ * @ORM\Table(name="comment", indexes={@index(name="comment_content_idx", columns={"content"})})
  * @ORM\Entity(repositoryClass="SocialBundle\Entity\CommentRepository")
  */
 class Comment
@@ -34,7 +34,16 @@ class Comment
      * @ORM\Column(name="created_at", type="datetime")
      */
     private $createdAt;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="SocialBundle\Entity\Review", cascade={"persist"})
+     */
+    private $review;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", cascade={"persist"})
+     */
+    private $user;
 
     /**
      * Get id
@@ -90,5 +99,53 @@ class Comment
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set review
+     *
+     * @param \SocialBundle\Entity\Review $review
+     *
+     * @return Comment
+     */
+    public function setReview(\SocialBundle\Entity\Review $review = null)
+    {
+        $this->review = $review;
+
+        return $this;
+    }
+
+    /**
+     * Get review
+     *
+     * @return \SocialBundle\Entity\Review
+     */
+    public function getReview()
+    {
+        return $this->review;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \UserBundle\Entity\User $user
+     *
+     * @return Comment
+     */
+    public function setUser(\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

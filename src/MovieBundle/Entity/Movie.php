@@ -7,7 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Movie
  *
- * @ORM\Table()
+ * @ORM\Table(name="movie",indexes={
+ *      @index(name="movie_title_idx", columns={"title"}),
+ *      @index(name="movie_year_idx", columns={"year"}),
+ *      @index(name="movie_author_idx", columns={"author"}),
+ * })
  * @ORM\Entity(repositoryClass="MovieBundle\Entity\MovieRepository")
  */
 class Movie
@@ -24,7 +28,7 @@ class Movie
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string")
      */
     private $title;
 
@@ -38,10 +42,14 @@ class Movie
     /**
      * @var string
      *
-     * @ORM\Column(name="author", type="string", length=255)
+     * @ORM\Column(name="author", type="string")
      */
     private $author;
-
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="MovieBundle\Entity\Category", cascade={"persist"})
+     */
+    private $categories;
 
     /**
      * Get id
@@ -120,5 +128,46 @@ class Movie
     public function getAuthor()
     {
         return $this->author;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add category
+     *
+     * @param \MovieBundle\Entity\Movie $category
+     *
+     * @return Movie
+     */
+    public function addCategory(\MovieBundle\Entity\Category $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \MovieBundle\Entity\Movie $category
+     */
+    public function removeCategory(\MovieBundle\Entity\Category $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Rate
  *
- * @ORM\Table()
+ * @ORM\Table(name="rate",indexes={@index(name="rate_value_idx", columns={"value"})})
  * @ORM\Entity(repositoryClass="SocialBundle\Entity\RateRepository")
  */
 class Rate
@@ -24,7 +24,7 @@ class Rate
     /**
      * @var string
      *
-     * @ORM\Column(name="value", type="string", length=255)
+     * @ORM\Column(name="value", type="string")
      */
     private $value;
 
