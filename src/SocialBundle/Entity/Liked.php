@@ -3,11 +3,12 @@
 namespace SocialBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Index;
 
 /**
  * Liked
  *
- * @ORM\Table()
+ * @ORM\Table(name="liked")
  * @ORM\Entity(repositoryClass="SocialBundle\Entity\LikedRepository")
  */
 class Liked

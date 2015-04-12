@@ -3,11 +3,12 @@
 namespace SocialBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Index;
 
 /**
  * Review
  *
- * @ORM\Table(name="review",indexes={@index(name="review_content_idx", columns={"content"})})
+ * @ORM\Table(name="review")
  * @ORM\Entity(repositoryClass="SocialBundle\Entity\ReviewRepository")
  */
 class Review

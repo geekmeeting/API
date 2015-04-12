@@ -3,11 +3,12 @@
 namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Index;
 
 /**
  * Friend
  *
- * @ORM\Table()
+ * @ORM\Table(name="friend")
  * @ORM\Entity(repositoryClass="UserBundle\Entity\FriendRepository")
  */
 class Friend

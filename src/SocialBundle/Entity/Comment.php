@@ -3,11 +3,12 @@
 namespace SocialBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Index;
 
 /**
  * Comment
  *
- * @ORM\Table(name="comment", indexes={@index(name="comment_content_idx", columns={"content"})})
+ * @ORM\Table(name="comment")
  * @ORM\Entity(repositoryClass="SocialBundle\Entity\CommentRepository")
  */
 class Comment

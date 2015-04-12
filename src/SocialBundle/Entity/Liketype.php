@@ -3,6 +3,7 @@
 namespace SocialBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Index;
 
 /**
  * LikeType
