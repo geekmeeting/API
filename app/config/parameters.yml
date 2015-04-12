@@ -10,5 +10,15 @@ parameters:
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
-    locale: en
+    locale: fr
     secret: ThisTokenIsNotSoSecretChangeIt
+    http.proxy.ip: 10.144.117.122
+    api.rest.hmac.algo: sha1
+    api.rest.security.enable: false
+    api.rest.security.extranet.web.client.name: 'Site Web'
+    api.rest.version: v1
+    test_unit.scheme: null
+    test_unit.host: null
+    test_unit.base_url: null
+    soap.wsdl.cache: false
+    helpdesk.mail: null
