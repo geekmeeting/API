@@ -2,13 +2,14 @@
 
 namespace MovieBundle\Controller;
 
+use FOS\RestBundle\Controller\Annotations\Get;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class MovieController
  * Ce Controller gère toutes les actions liées aux Movies
  *
- * @Route("/movies")
  * @package MovieBundle\Controller
  */
 class MovieController extends Controller

@@ -1,14 +1,14 @@
 user:
     resource: "@UserBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /Users
 
 movie:
     resource: "@MovieBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /movies
 
 social:
     resource: "@SocialBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /social
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

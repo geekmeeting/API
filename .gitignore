@@ -4,3 +4,8 @@
 /app/logs/*
 /vendor/
 /app/config/parameters.yml
+*.log
+
+app/logs/dev.log
+
+*.log
