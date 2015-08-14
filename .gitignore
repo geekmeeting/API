@@ -9,3 +9,9 @@
 app/logs/dev.log
 
 *.log
+
+app/bootstrap.php.cache
+
+app/bootstrap.php.cache
+
+*.cache
