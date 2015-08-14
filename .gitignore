@@ -15,3 +15,5 @@ app/bootstrap.php.cache
 app/bootstrap.php.cache
 
 *.cache
+
+app/bootstrap.php.cache

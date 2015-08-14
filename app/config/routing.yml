@@ -1,7 +1,3 @@
-# user:
-#     resource: "@UserBundle/Resources/config/routing.yml"
-#     prefix:   /Users
-
 movie:
     resource: "@MovieBundle/Resources/config/routing.yml"
     prefix:   /movies
@@ -16,3 +12,8 @@ fos_user:
 app:
     resource: @AppBundle/Controller/
     type:     annotation
+
+user: 
+    type : rest
+    prefix:   /api
+    resource: "@UserBundle/Resources/config/routing.yml"
