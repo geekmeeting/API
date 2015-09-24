@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "714e5a3281e0dcac742c05318622258c",
-    "content-hash": "669aa2aec0bde10d3a7305a61d02be26",
+    "hash": "15f9e4f00d1674a66055121dfdd70eb0",
+    "content-hash": "58fd3282d683f3423e9da7b73aae8ff7",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -954,7 +954,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/683d195091a59916b3638cbad5cae82cd6e8c181",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/28a38e65d79383113e17e5585395bfdeb77c87a4",
                 "reference": "2d9bf77fdb4789e8f76c4fef072bd5b862f3b882",
                 "shasum": ""
             },
@@ -1570,6 +1570,58 @@
                 "psr-3"
             ],
             "time": "2015-08-09 17:44:44"
+        },
+        {
+            "name": "phake/phake",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mlively/Phake.git",
+                "reference": "20d76de0ec09f219d548752847835c256526d22d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mlively/Phake/zipball/20d76de0ec09f219d548752847835c256526d22d",
+                "reference": "20d76de0ec09f219d548752847835c256526d22d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "sebastian/comparator": "~1.1"
+            },
+            "require-dev": {
+                "doctrine/common": "2.3.*",
+                "ext-soap": "*",
+                "hamcrest/hamcrest-php": "1.1.*",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "suggest": {
+                "doctrine/common": "Allows mock annotations to use import statements for classes.",
+                "hamcrest/hamcrest-php": "Use Hamcrest matchers."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Phake": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Lively",
+                    "email": "m@digitalsandwich.com"
+                }
+            ],
+            "description": "The Phake mock testing library",
+            "homepage": "https://github.com/mlively/Phake",
+            "keywords": [
+                "mock",
+                "testing"
+            ],
+            "time": "2015-05-09 13:58:15"
         },
         {
             "name": "phpcollection/phpcollection",
