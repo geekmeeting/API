@@ -17,7 +17,10 @@ class UserRestControllerTest extends WebTestCase
 
 		/*$this->container = static::$kernel->getContainer();*/
 
-		$this->client = static::createClient();
+		$this->client = static::createClient(array(), array(
+												    'PHP_AUTH_USER' => 'ragou',
+												    'PHP_AUTH_PW'   => 'ragou')
+											);
 	}
 
     public function testPostUser()

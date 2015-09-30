@@ -18,7 +18,7 @@ class UserRestController extends Controller
    * @Post ("/user")
    */
   public function postUserAction(Request $request){
-    var_dump("ragouuuu"); die();
+
 
   	$username = $request->get('username');
   	$password = $request->get('password');  // il faut régler le pb du mot de pass crypté et salt
@@ -34,7 +34,7 @@ class UserRestController extends Controller
       //throw $this->createNotFoundException();
     /*}*/
 
-    return $user;
+    return 1;
 
   }
 }
