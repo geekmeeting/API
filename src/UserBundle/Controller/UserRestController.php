@@ -18,20 +18,21 @@ class UserRestController extends Controller
    * @Post ("/user")
    */
   public function postUserAction(Request $request){
+    var_dump("ragouuuu"); die();
 
-  	$username = $request->request->get('username');
-  	$password = $request->request->get('password');  // il faut régler le pb du mot de pass crypté et salt
+  	$username = $request->get('username');
+  	$password = $request->get('password');  // il faut régler le pb du mot de pass crypté et salt
 
   	$password ="rogi{g8sg9ivlcz4sw4go8o84488wg8cws8o}";
     
-    $user = $this->getDoctrine()->getRepository('UserBundle:User')->findBy(array(
+    $user = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->findBy(array(
                                                                                   'username' => $username,
     																		                                          'password' => $password)
  																	                                        );
 
-    if(!is_object($user)){
+   /* if(!is_object($user)){*/
       //throw $this->createNotFoundException();
-    }
+    /*}*/
 
     return $user;
 
