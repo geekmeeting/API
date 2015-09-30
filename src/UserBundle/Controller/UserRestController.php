@@ -34,7 +34,7 @@ class UserRestController extends Controller
       //throw $this->createNotFoundException();
     /*}*/
 
-    return 1;
+    return $user;
 
   }
 }

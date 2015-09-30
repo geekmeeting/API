@@ -12,15 +12,8 @@ class UserRestControllerTest extends WebTestCase
 
 	public function setUp()
 	{
-/*		static::$kernel = static::createKernel();
-		static::$kernel->boot();*/
 
-		/*$this->container = static::$kernel->getContainer();*/
-
-		$this->client = static::createClient(array(), array(
-												    'PHP_AUTH_USER' => 'ragou',
-												    'PHP_AUTH_PW'   => 'ragou')
-											);
+		$this->client = static::createClient();
 	}
 
     public function testPostUser()
@@ -28,8 +21,14 @@ class UserRestControllerTest extends WebTestCase
  		$this->client->request('POST', '/api/user', array('username' => 'rogi', 'password' => 'rogi'));
         $response = $this->client->getResponse();
         $json = json_decode($response->getContent());
-        var_dump($response); die();
-        $this->assertEquals(1, $json);
+
+        $userStd = new \stdClass();
+        $userStd->username = "rogi";
+        $userStd->id = 3;
+
+        $user_array = array($userStd);
+
+        $this->assertEquals($user_array, $json);
 
  	
     }
