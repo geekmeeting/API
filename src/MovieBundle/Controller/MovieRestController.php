@@ -7,18 +7,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class MovieController
+ * Class MovieRestController
  * Ce Controller gère toutes les actions liées aux Movies
  *
  * @package MovieBundle\Controller
  */
-class MovieController extends Controller
+class MovieRestController extends Controller
 {
     /**
-     * @Get ("", name="api.getMovieInfo")
+     * @Get ("/movie/{title}")
      */
-    public function getAction()
+    public function getMovieAction($title)
     {
-        return new Response("hello, je suis l'API");
+    	$uri = 'http://www.omdbapi.com/?t='.$title.'&y=&plot=short&r=json';
+    	$movie = file_get_contents($uri);
+        return new Response($movie);
     }
 }
