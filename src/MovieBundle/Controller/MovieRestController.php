@@ -19,8 +19,30 @@ class MovieRestController extends Controller
      */
     public function getMovieAction($title)
     {
-    	$uri = 'http://www.omdbapi.com/?t='.$title.'&y=&plot=short&r=json';
+/*    	$uri = 'http://www.omdbapi.com/?t='.$title.'&y=&plot=short&r=json';
     	$movie = file_get_contents($uri);
+        return new Response($movie);*/
+		$uri = 'http://www.omdbapi.com/?t='.$title.'&y=&plot=short&r=json';
+		$service_url = $uri;
+		$curl = curl_init($service_url);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		$curl_response = curl_exec($curl);
+
+		if ($curl_response === false) 
+		{
+		    $info = curl_getinfo($curl);
+		    curl_close($curl);
+		    die('error occured during curl exec. Additioanl info: ' . var_export($info));
+		}
+
+		curl_close($curl);
+		$movie = json_decode($curl_response);
+
+		if (isset($movie->response->status) && $movie->response->status == 'ERROR') 
+		{
+    		die('error occured: ' . $movie->response->errormessage);
+		}
+
         return new Response($movie);
     }
 }
