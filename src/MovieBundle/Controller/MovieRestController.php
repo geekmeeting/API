@@ -19,9 +19,7 @@ class MovieRestController extends Controller
      */
     public function getMovieAction($title)
     {
-/*    	$uri = 'http://www.omdbapi.com/?t='.$title.'&y=&plot=short&r=json';
-    	$movie = file_get_contents($uri);
-        return new Response($movie);*/
+
 		$uri = 'http://www.omdbapi.com/?t='.$title.'&y=&plot=short&r=json';
 		$service_url = $uri;
 		$curl = curl_init($service_url);
