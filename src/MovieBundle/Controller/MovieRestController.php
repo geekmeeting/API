@@ -19,7 +19,6 @@ class MovieRestController extends Controller
      */
     public function getMovieAction($title)
     {
-
 		$uri = 'http://www.omdbapi.com/?t='.$title.'&y=&plot=short&r=json';
 		$service_url = $uri;
 		$curl = curl_init($service_url);
@@ -36,11 +35,14 @@ class MovieRestController extends Controller
 		curl_close($curl);
 		$movie = json_decode($curl_response);
 
+
 		if (isset($movie->response->status) && $movie->response->status == 'ERROR') 
 		{
     		die('error occured: ' . $movie->response->errormessage);
 		}
+	
+		echo 'response ok!';
 
-        return new Response($movie);
+        return $movie;
     }
 }
