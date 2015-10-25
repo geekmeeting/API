@@ -5,7 +5,7 @@ namespace MovieBundle\Controller;
 use FOS\RestBundle\Controller\Annotations\Get;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-
+use GuzzleHttp\Client;
 /**
  * Class MovieRestController
  * Ce Controller gère toutes les actions liées aux Movies
@@ -19,7 +19,15 @@ class MovieRestController extends Controller
      */
     public function getMovieAction($title)
     {
-		$uri = 'http://www.omdbapi.com/?t='.$title.'&y=&plot=short&r=json';
+    	$client = $this->get('rest.ws.client');
+		$res = $client->getMovieByTitle($title);
+		
+		return new Response($res);
+
+
+
+
+		/*$uri = 'http://www.omdbapi.com/?t='.$title.'&y=&plot=short&r=json';
 		$service_url = $uri;
 		$curl = curl_init($service_url);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -43,6 +51,6 @@ class MovieRestController extends Controller
 	
 		echo 'response ok!';
 
-        return $movie;
+        return $movie;*/
     }
 }
