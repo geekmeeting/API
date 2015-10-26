@@ -1,3 +1,9 @@
+parameters:
+    class.guzzle.client: GuzzleHttp\Client
+
 services:
     rest.ws.client:
         class: MovieBundle\Services\RestWsClient
+        arguments: ["@guzzle.http.client"]
+    guzzle.http.client:
+        class: %class.guzzle.client%

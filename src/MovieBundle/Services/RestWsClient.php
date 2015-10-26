@@ -30,9 +30,8 @@ class RestWsClient
 
     /**
      */
-    public function __construct()
+    public function __construct(Client $client)
     {
-        $client = new Client();
         $this->client = $client;
     }
 
