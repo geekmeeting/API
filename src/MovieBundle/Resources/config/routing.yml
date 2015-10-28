@@ -1,3 +1,4 @@
-movie_homepage:
-    type: annotation
-    resource: "@MovieBundle/Controller/MovieController.php"
+movies : 
+    type: rest
+    resource:     "MovieBundle:MovieRest"
+    name_prefix:  api_

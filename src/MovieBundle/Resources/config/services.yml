@@ -1,4 +1,9 @@
+parameters:
+    class.guzzle.client: GuzzleHttp\Client
+
 services:
-#    movie.example:
-#        class: MovieBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    rest.ws.client:
+        class: MovieBundle\Services\RestWsClient
+        arguments: ["@guzzle.http.client"]
+    guzzle.http.client:
+        class: %class.guzzle.client%
